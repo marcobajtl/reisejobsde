@@ -1,0 +1,65 @@
+.index .topjobs {
+  padding-bottom: 60px;
+}
+.index .topjobs .jobheader {
+  color: #607196;
+}
+.index .topjobs .piccol {
+  position: relative;
+  width: 20%;
+}
+.index .topjobs .piccol img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: auto;
+}
+.index .topjobs .piccol .floatingtext {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  color: black;
+  opacity: 0.7;
+  background-color: white;
+}
+.index .topjobs .piccol .floatingtext p {
+  margin: 0 auto;
+  text-align: center;
+}
+.index .topjobs .piccol .toppos {
+  font-size: 25px;
+  top: 0;
+  transform: translateY(0%);
+}
+.index .topjobs .piccol .bottompos {
+  font-size: 16px;
+  top: 100%;
+  transform: translateY(-100%);
+}
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  .index .toppos {
+    font-size: 16px !important;
+  }
+  .index .bottompos {
+    font-size: 10px !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .index .piccol {
+    margin: 10px 0;
+    width: 100% !important;
+  }
+  .index .piccol img {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 80% !important;
+    height: auto !important;
+  }
+  .index .jobheader h1 {
+    text-align: center;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,25 @@
+body {
+  font-family: Circular Pro, SansSerif, Arial, serif;
+}
+
+.ta-ctr {
+  text-align: center;
+}
+
+.va-ctr {
+  vertical-align: center;
+}
+
+.nopad-r {
+  padding-right: 0;
+}
+
+.mrg-top-20 {
+  margin-top: 20px;
+}
+
+.tg-center {
+  text-align: center;
+}
+
+/*# sourceMappingURL=short.css.map */

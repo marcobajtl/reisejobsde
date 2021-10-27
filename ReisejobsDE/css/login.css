@@ -1,0 +1,47 @@
+.loginsite {
+  padding-bottom: 50px;
+}
+.loginsite .form-group {
+  margin-top: 15px;
+}
+.loginsite small {
+  font-size: 8px !important;
+}
+.loginsite .btn-primary, .loginsite .form-check-input:checked {
+  background-color: #FF7B9C;
+  border-color: #ff4676;
+}
+.loginsite .loginheader {
+  font-size: 20px;
+  font-weight: bold;
+}
+.loginsite .loginerror .errortext {
+  font-size: 18px;
+  margin-top: 15px;
+  text-align: center;
+  background-color: #fc6c6c;
+  border: 1px solid #fd3131;
+  box-shadow: 0 0 2px #ff0000;
+  border-radius: 5px;
+}
+.loginsite .loginerror .successtext {
+  font-size: 18px;
+  margin-top: 15px;
+  text-align: center;
+  background-color: #8bfc6c;
+  border: 1px solid #6bfd31;
+  box-shadow: 0 0 2px #66ff00;
+  border-radius: 5px;
+}
+@media screen and (max-width: 768px) {
+  .loginsite .login {
+    border-bottom: black 1px solid;
+  }
+}
+@media screen and (min-width: 768px) {
+  .loginsite .login {
+    border-right: black 1px solid;
+  }
+}
+
+/*# sourceMappingURL=login.css.map */

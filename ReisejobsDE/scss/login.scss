@@ -1,0 +1,56 @@
+@import "colors";
+
+.loginsite {
+    padding-bottom: 50px;
+    .form-group{
+        margin-top: 15px;
+    }
+
+    small{
+        font-size: 8px !important;
+    }
+
+    .btn-primary, .form-check-input:checked{
+        background-color: $c2a;
+        border-color:     #ff4676;
+    }
+
+    .loginheader{
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .loginerror {
+        .errortext {
+            font-size: 18px;
+            margin-top: 15px;
+            text-align:       center;
+            background-color: #fc6c6c;
+            border:           1px solid #fd3131;
+            box-shadow:       0 0 2px #ff0000;
+            border-radius: 5px;
+        }
+
+        .successtext {
+            font-size:        18px;
+            margin-top:       15px;
+            text-align:       center;
+            background-color: #8bfc6c;
+            border:           1px solid #6bfd31;
+            box-shadow:       0 0 2px #66ff00;
+            border-radius:    5px;
+        }
+    }
+
+    @media screen and (max-width: 768px){
+        .login {
+            border-bottom: black 1px solid;
+        }
+    }
+    @media screen and (min-width: 768px){
+        .login {
+            border-right: black 1px solid;
+        }
+    }
+
+}
