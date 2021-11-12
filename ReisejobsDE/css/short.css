@@ -1,25 +1,37 @@
 body {
-  font-family: Circular Pro, SansSerif, Arial, serif;
+	font-family: Circular Pro, SansSerif, Arial, serif;
 }
 
 .ta-ctr {
-  text-align: center;
+	text-align: center;
 }
 
 .va-ctr {
-  vertical-align: center;
+	vertical-align: center;
 }
 
 .nopad-r {
-  padding-right: 0;
+	padding-right: 0;
+}
+
+.nomrg {
+	margin: 0 !important;
 }
 
 .mrg-top-20 {
-  margin-top: 20px;
+	margin-top: 20px;
 }
 
 .tg-center {
-  text-align: center;
+	text-align: center;
+}
+
+.brd-1-b {
+	border: 1px solid black;
+}
+
+.pos-rel {
+	position: relative;
 }
 
 /*# sourceMappingURL=short.css.map */

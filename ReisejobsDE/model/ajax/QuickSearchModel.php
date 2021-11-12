@@ -2,6 +2,7 @@
 
 namespace model\ajax;
 
+
 use model\Model;
 
 class QuickSearchModel extends Model
@@ -13,18 +14,33 @@ class QuickSearchModel extends Model
      */
     public function quickFindUnternehmen($strUnternehmen): array
     {
-        $strSQLStatement = "SELECT Unternehmen.Name FROM Unternehmen WHERE Unternehmen.Name LIKE '%$strUnternehmen%'";
-        return Model::returnSQLData($strSQLStatement);
+        $objDatabase = Model::returnConnection();
+        $strParameter = "%$strUnternehmen%";
+        $objPrepared = $objDatabase->prepare("SELECT Unternehmen.Name FROM Unternehmen WHERE Unternehmen.Name LIKE ?");
+        $objPrepared->bind_param("s", $strParameter);
+        $objPrepared->execute();
+        $objResult = $objPrepared->get_result();
+        return $objResult->fetch_all();
     }
 
     public function quickFindJobTitel($strJobTitel): array
     {
-        $strSQLStatement = "SELECT Jobangebote.Name FROM Jobangebote WHERE Jobangebote.Name LIKE '%$strJobTitel%'";
-        return Model::returnSQLData($strSQLStatement);
+        $strParameter = "%$strJobTitel%";
+        $objDatabase = Model::returnConnection();
+        $objPrepared = $objDatabase->prepare("SELECT Jobangebote.Titel FROM Jobangebote WHERE Jobangebote.Titel LIKE ?");
+        $objPrepared->bind_param("s", $strParameter);
+        $objPrepared->execute();
+        $objResult = $objPrepared->get_result();
+        return $objResult->fetch_all();
     }
     public function quickFindOrt($strOrt): array
     {
-        $strSQLStatement = "SELECT Jobangebote.Standort, Jobangebote.PLZ FROM Jobangebote WHERE Jobangebote.Standort LIKE '%$strOrt%'  OR Jobangebote.PLZ LIKE '%$strOrt%'";
-        return Model::returnSQLData($strSQLStatement);
+        $strParameter = "%$strOrt%";
+        $objDatabase = Model::returnConnection();
+        $objPrepared = $objDatabase->prepare("SELECT Jobangebote.Standort FROM Jobangebote WHERE Jobangebote.Standort LIKE ? OR Jobangebote.PLZ LIKE ?");
+        $objPrepared->bind_param("ss", $strParameter, $strParameter);
+        $objPrepared->execute();
+        $objResult = $objPrepared->get_result();
+        return $objResult->fetch_all();
     }
 }

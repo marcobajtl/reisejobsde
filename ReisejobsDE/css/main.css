@@ -82,4 +82,15 @@
   margin: 0;
 }
 
+@media screen and (max-width: 975px) {
+  .container {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 975px) {
+  .container {
+    width: 70%;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */

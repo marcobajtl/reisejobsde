@@ -10,13 +10,21 @@ class IndexModel extends Model
     public function loadRandomJobs(): array
     {
         $arrJobList = [];
-        $arrRandomJobs = Model::returnSQLData("SELECT Jobangebote.ID, Unternehmen.Name, Jobangebote.Name, Jobangebote.Standort, Jobangebote.Beschreibung
+        $arrRandomJobs = Model::returnSQLArray("SELECT Jobangebote.JobID, Unternehmen.Name, Unternehmen.UnternehmenID, Jobangebote.Titel, Jobangebote.Standort, Jobangebote.Beschreibung
                                                       FROM Jobangebote
-                                                      INNER JOIN Unternehmen on Jobangebote.FKUnternehmenID = Unternehmen.ID
+                                                      INNER JOIN Unternehmen on Jobangebote.FKUnternehmenID = Unternehmen.UnternehmenID
                                                       ORDER BY RAND() 
                                                       LIMIT 5");
         foreach($arrRandomJobs as $arrJob){
-            $arrJobList[] = new JobModel($arrJob[0], $arrJob[1],$arrJob[2],$arrJob[3],$arrJob[4]);
+            $obJobModel = new JobModel();
+            $obJobModel->setIntJobID(htmlentities($arrJob['JobID']));
+            $obJobModel->setStrUnternehmenName(htmlentities($arrJob['Name']));
+            $obJobModel->setStrJobName(htmlentities($arrJob['Titel']));
+            $obJobModel->setStrJobStandort(htmlentities($arrJob['Standort']));
+            $obJobModel->setStrJobBeschreibung(htmlentities($arrJob['Beschreibung']));
+            $obJobModel->setIntUnternehmenID(htmlentities($arrJob['UnternehmenID']));
+            $arrJobList[] = $obJobModel;
+
         }
         return $arrJobList;
     }

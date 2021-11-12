@@ -1,0 +1,187 @@
+.benutzerinterface {
+  margin-bottom: 50px;
+}
+.benutzerinterface .container {
+  width: 100%;
+}
+.benutzerinterface .siteheader {
+  font-size: 36px;
+  font-weight: bold;
+  border: 5px solid #FFC759;
+  background-color: rgba(255, 209, 131, 0.22);
+  text-align: center;
+  padding-top: 15px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+.benutzerinterface .editarea {
+  width: 100%;
+  height: auto;
+}
+.benutzerinterface .unternehmensheader {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.benutzerinterface .mainsection {
+  border: 5px solid #FFC759;
+  background-color: rgba(255, 209, 131, 0.1);
+}
+.benutzerinterface .mainsection .jobheader {
+  margin: 10px 0 15px 0;
+  position: relative;
+  border: 1px solid #FFC759;
+  border-top: none;
+}
+.benutzerinterface .mainsection .jobheader .addbtn {
+  position: absolute;
+  right: 10px;
+  bottom: -7px;
+}
+.benutzerinterface .mainsection .jobheader .addbtn button {
+  font-size: 25px;
+  text-decoration: none;
+  color: #66ff00;
+  font-weight: bolder;
+  background: none;
+  border: none;
+}
+.benutzerinterface .mainsection .jobheader .addbtn span {
+  position: static;
+  margin-bottom: 50px;
+}
+.benutzerinterface .mainsection .jobheader p {
+  font-size: 22px;
+  text-align: center;
+}
+.benutzerinterface .mainsection .jobcontainer {
+  border: 1px solid #FFC759;
+  margin-top: 20px;
+  padding: 0;
+}
+.benutzerinterface .mainsection .jobcontainer .jobname {
+  border: 1px solid #FFC759;
+  border-left: none;
+  border-top: none;
+}
+.benutzerinterface .mainsection .jobcontainer .jobort {
+  border-bottom: 1px solid #FFC759;
+}
+.benutzerinterface .mainsection .jobcontainer .jobbeschreibung {
+  position: relative;
+  min-height: 90px;
+}
+.benutzerinterface .mainsection .jobcontainer .deletebtn {
+  position: absolute;
+  top: 0;
+  right: -20px;
+  display: block;
+}
+.benutzerinterface .mainsection .jobcontainer .deletebtn p {
+  font-weight: bold;
+  text-align: center;
+  font-size: 12px;
+}
+.benutzerinterface .mainsection .jobcontainer .deletebtn button {
+  height: 25px;
+  padding-left: 20px;
+  font-size: 25px;
+  color: red;
+  border: none;
+  background: none;
+}
+.benutzerinterface .mainsection .jobcontainer .editbtn {
+  position: absolute;
+  top: 40px;
+  right: -18px;
+  display: block;
+}
+.benutzerinterface .mainsection .jobcontainer .editbtn p {
+  font-weight: bold;
+  text-align: center;
+  font-size: 12px;
+}
+.benutzerinterface .mainsection .jobcontainer .editbtn button {
+  height: 25px;
+  border: none;
+  background: none;
+  font-size: 22px;
+  padding-left: 30px;
+  margin: 0;
+}
+.benutzerinterface .mainsection .jobcontainer .editbtn a {
+  text-decoration: none;
+  color: black;
+}
+.benutzerinterface .sidebar {
+  border: 5px solid #FFC759;
+  border-left: none;
+  background-color: rgba(255, 209, 131, 0.1);
+}
+.benutzerinterface .sidebar span {
+  margin: 0;
+  padding: 0;
+}
+.benutzerinterface .sidebar .unternehmensort {
+  padding-left: 12px;
+  display: inline;
+}
+.benutzerinterface .hidden {
+  display: none;
+}
+.benutzerinterface .popupform .modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+.benutzerinterface .popupform .modal-content {
+  background-color: #fefefe;
+  margin: 5px auto;
+  border: 1px solid #888;
+  width: 80%;
+}
+.benutzerinterface .popupform form {
+  border: 3px solid #f1f1f1;
+}
+.benutzerinterface .popupform input[type=text], .benutzerinterface .popupform input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.benutzerinterface .popupform button {
+  background-color: #a404aa;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+.benutzerinterface .popupform button:hover {
+  opacity: 0.8;
+}
+.benutzerinterface .popupform .createbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #FF7B9C;
+}
+.benutzerinterface .popupform .container {
+  padding: 16px;
+}
+.benutzerinterface .popupform #jobbeschreibung {
+  width: 100%;
+  height: 150px;
+}
+
+/*# sourceMappingURL=unternehmenbereich.css.map */

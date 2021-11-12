@@ -1,0 +1,29 @@
+{
+  "name": "m.bajtl/reisejobs.de",
+  "authors": [
+    {
+      "name": "Marco Bajtl",
+      "email": "m.bajtl@schoetex.de"
+    }
+  ],
+  "license": "proprietary",
+  "minimum-stability": "dev",
+  "description": "ReiseJobs.de",
+  "require": {
+    "ext-mysqli": "*",
+    "ext-gd": "*",
+    "symfony/mailer": "5.4.x-dev",
+    "ext-json": "*"
+  }
+  ,
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  },
+  "autoload": {
+    "psr-4": {
+      "controller\\ajax\\": "controller/ajax",
+      "controller\\": "controller",
+      "model\\": "model"
+    }
+  }
+}

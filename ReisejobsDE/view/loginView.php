@@ -1,3 +1,6 @@
+<?php
+$_SESSION['csrf_token'] = hash("SHA256" ,uniqid('', true));
+?>
 <div class="container loginsite">
 	<div class="row">
 		<div class="col col-12 col-md-6 login">
@@ -67,6 +70,7 @@
 						</div>
 					</div>
 				</div>
+				<input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>" />
 			</form>
 		</div>
 		<div class="col col-12 col-md-6 register">
@@ -182,6 +186,7 @@
 						</button>
 					</div>
 				</div>
+				<input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>" />
 			</form>
 		</div>
 	</div>

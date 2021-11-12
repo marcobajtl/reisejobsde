@@ -1,22 +1,22 @@
 <?php
 /** @var array $arrJobList */
+
+$_SESSION['csrf_token'] = hash("SHA256", uniqid('', true));
+
 ?>
+<?php include_once "quicksearch.php"?>
 <div class="container index">
-
-	<?php include_once "quicksearch.php"?>
-
 	<div class="row topjobs">
 		<div class="jobheader">
 			<h1>Die aktellen Top-Jobs</h1>
 		</div>
         <?php foreach ($arrJobList as $arrJob): ?>
 		<div class="piccol">
-            <?php if(file_exists("bilder/upload/job/$arrJob->intJobID.png")):?>
-			<img src="bilder/upload/job/<?=$arrJob->intJobID ?>.png"
+            <?php if(file_exists("bilder/upload/profile/$arrJob->intUnternehmenID.png")):?>
+			<img src="bilder/upload/profile/<?=$arrJob->intUnternehmenID ?>.png"
 				 alt="">
-			<?php endif?>
-			<?php if(!file_exists("bilder/upload/job/$arrJob->intJobID.png")):?>
-			<img src="bilder/upload/job/default.png"
+			<?php else:?>
+			<img src="bilder/upload/profile/default.png"
 				 alt="">
 			<?php endif?>
 			<div class="floatingtext toppos ta-ctr va-ctr">

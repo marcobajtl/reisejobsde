@@ -7,7 +7,7 @@ use model\ArbeitgeberModel;
 class ArbeitgeberController extends Controller
 {
 
-    function verarbeiteDaten()
+    public function verarbeiteDaten()
     {
         $arrUnternehmen = ArbeitgeberModel::returnArbeitgeber();
         $strFileName = "arbeitgeberView.php";

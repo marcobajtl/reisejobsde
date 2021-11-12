@@ -1,0 +1,46 @@
+.kontakt .inputfield, .kontakt select, .kontakt textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 5px;
+  resize: vertical;
+}
+.kontakt .submitbtn input {
+  background-color: #FF7B9C;
+  color: white;
+  padding: 12px 20px;
+  border: 2px solid #fd5783;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.kontakt .submitbtn input:hover {
+  background-color: #ff98b3;
+}
+.kontakt textarea {
+  height: 200px;
+}
+.kontakt .form-container {
+  padding: 15px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.kontakt .invalidfield {
+  border: 3px solid #f8a2a2;
+}
+.kontakt .validfield {
+  border: 3px solid #affcaf;
+}
+.kontakt .honeypot {
+  display: none;
+}
+.kontakt .successbox {
+  display: none;
+}
+.kontakt .errorbox {
+  display: none;
+}
+
+/*# sourceMappingURL=kontakt.css.map */

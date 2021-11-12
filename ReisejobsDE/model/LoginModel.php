@@ -7,7 +7,7 @@ class LoginModel extends Model
 
     /** Fügt ein Unternehmen in die Datenbank ein
      */
-    public function registerUnternehmen($strEmail, $strPassword)
+    public function registerUnternehmen($strEmail, $strPassword): void
     {
         $objDatabase = Model::returnConnection();
         $objPrepared = $objDatabase->prepare("INSERT INTO Unternehmen(Email, Passwort) VALUE (?, ?)");
@@ -17,7 +17,7 @@ class LoginModel extends Model
 
 
     /** Fügt ein Bewerber in die Datenbank ein */
-    public function registerBewerber($strEmail, $strPassword)
+    public function registerBewerber($strEmail, $strPassword): void
     {
         $objDatabase = Model::returnConnection();
         $objPrepared = $objDatabase->prepare("INSERT INTO Bewerber(Email, Passwort) VALUE (?, ?)");
@@ -29,25 +29,46 @@ class LoginModel extends Model
     /** Gibt ein Passwort für eine E-Mail zurück */
     public function loginData($strEmail): array
     {
-        $strBewerberPasswordDB    = Model::returnSQLData(
-            "SELECT Bewerber.Passwort, Bewerber.ID
+        // Prüft die E-Mail in der Bewerberdatenbank
+        $objDatabase = Model::returnConnection();
+        $objPrepared = $objDatabase->prepare(
+            "SELECT Bewerber.Passwort, Bewerber.BewerberID
                                 FROM Bewerber
-                                WHERE Bewerber.Email = \"$strEmail\""
+                                WHERE Bewerber.Email = ?"
         );
-        $strUnternehmenPasswordDB = Model::returnSQLData(
-            "SELECT Unternehmen.Passwort, Unternehmen.ID
+        $objPrepared->bind_param("s", $strEmail);
+        $objPrepared->execute();
+        $objResult             = $objPrepared->get_result();
+        $strBewerberPasswordDB = $objResult->fetch_all(MYSQLI_ASSOC);
+        // Prüft die E-Mail in der Unternehmensdatenbank
+        $objDatabase = Model::returnConnection();
+        $objPrepared = $objDatabase->prepare(
+            "SELECT Unternehmen.Passwort, Unternehmen.UnternehmenID
                                 FROM Unternehmen
-                                WHERE Unternehmen.Email = \"$strEmail\""
+                                WHERE Unternehmen.Email = ?"
         );
-        if($strBewerberPasswordDB != null)
+        $objPrepared->bind_param("s", $strEmail);
+        $objPrepared->execute();
+        $objResult                = $objPrepared->get_result();
+        $strUnternehmenPasswordDB = $objResult->fetch_all(MYSQLI_ASSOC);
+        if($strBewerberPasswordDB !== [])
         {
             $usertype = "Bewerber";
-            return array($strBewerberPasswordDB[0][0],$strBewerberPasswordDB[0][1], $usertype);
+
+            return array(
+                $strBewerberPasswordDB[0]["Passwort"],
+                $strBewerberPasswordDB[0]["BewerberID"],
+                $usertype
+            );
         }
-        elseif($strUnternehmenPasswordDB != null)
+        if($strUnternehmenPasswordDB !== [])
         {
             $usertype = "Unternehmen";
-            return array($strUnternehmenPasswordDB[0][0],$strUnternehmenPasswordDB[0][1], $usertype);
+            return array(
+                $strUnternehmenPasswordDB[0]["Passwort"],
+                $strUnternehmenPasswordDB[0]["UnternehmenID"],
+                $usertype
+            );
         }
         return array();
     }
@@ -57,8 +78,23 @@ class LoginModel extends Model
      */
     public function isRegistered($strEmail): int
     {
-        $arrBewerberRegister    = intval(Model::returnSQLData("SELECT COUNT('Bewerber.Email') FROM Bewerber WHERE Bewerber.Email =  \"$strEmail\"")[0][0]);
-        $arrUnternehmenRegister = intval(Model::returnSQLData("SELECT COUNT('Unternehmen.Email') FROM Unternehmen WHERE Unternehmen.Email = \"$strEmail\"")[0][0]);
-        return $arrBewerberRegister + $arrUnternehmenRegister;
+        //Zählt, wie oft die angegebene E-Mail als Benutzerkonto registriert wurde.
+        $objDatabase = Model::returnConnection();
+        $objPrepared = $objDatabase->prepare(
+            "SELECT COUNT('Bewerber.Email') FROM Bewerber WHERE Bewerber.Email = ?");
+        $objPrepared->bind_param("s", $strEmail);
+        $objPrepared->execute();
+        $objResult                = $objPrepared->get_result();
+        $intBewerberRegister = (int)$objResult->fetch_row()[0];
+        //Zählt, wie oft die angegebene E-Mail als Unternehmenskonto registriert wurde.
+        $objDatabase = Model::returnConnection();
+        $objPrepared = $objDatabase->prepare(
+            "SELECT COUNT('Unternehmen.Email') FROM Unternehmen WHERE Unternehmen.Email = ?");
+        $objPrepared->bind_param("s", $strEmail);
+        $objPrepared->execute();
+        $objResult                = $objPrepared->get_result();
+        $intUnternehmenRegister = (int)$objResult->fetch_row()[0];
+        //Gibt zurück, wie oft eine E-Mail registriert wurde
+        return $intBewerberRegister + $intUnternehmenRegister;
     }
 }

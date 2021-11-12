@@ -15,18 +15,8 @@ class ArbeitgeberModel extends Model
     /** @var int */
     public $intJobCount;
 
-    /** Konstruktor für das Arbeitgeber Objekt */
-    public function __construct($intUnternehmenID, $strUnternehmenName, $strUnternehmenOrt, $strUnternehmenBeschreibung)
-    {
-        $this->intUnternehmenID           = $intUnternehmenID;
-        $this->strUnternehmenName         = $strUnternehmenName;
-        $this->strUnternehmenOrt          = $strUnternehmenOrt;
-        $this->strUnternehmenBeschreibung = $strUnternehmenBeschreibung;
-        $this->intJobCount                = $this->countJobs($intUnternehmenID);
-    }
-
     /** Zählt wie viele Jobs bei einem Arbeitgeber verfügbar sind. */
-    function countJobs($intUnternehmenID): array
+    protected static function countJobs($intUnternehmenID)
     {
         $objDatabase = Model::returnConnection();
         $objPrepared = $objDatabase->prepare("SELECT COUNT('ID') FROM Jobangebote WHERE Jobangebote.FKUnternehmenID = ?");
@@ -40,11 +30,58 @@ class ArbeitgeberModel extends Model
     public static function returnArbeitgeber(): array
     {
         $arrArbeitgeberList = [];
-        $arrArbeitgeber     = Model::returnSQLData("SELECT * FROM Unternehmen");
+        $arrArbeitgeber     = Model::returnSQLArray("SELECT Unternehmen.UnternehmenID, Unternehmen.Name, Unternehmen.Ort, Unternehmen.Beschreibung FROM Unternehmen");
         foreach($arrArbeitgeber as $arrArbeitgeberItem)
         {
-            $arrArbeitgeberList[] = new ArbeitgeberModel($arrArbeitgeberItem[0], $arrArbeitgeberItem[1], $arrArbeitgeberItem[2], $arrArbeitgeberItem[3]);
+            $objArbeitgeberModel = new self();
+            $objArbeitgeberModel->setIntUnternehmenID(htmlentities($arrArbeitgeberItem['UnternehmenID']));
+            $objArbeitgeberModel->setStrUnternehmenName(htmlentities($arrArbeitgeberItem['Name']));
+            $objArbeitgeberModel->setStrUnternehmenOrt(htmlentities($arrArbeitgeberItem['Ort']));
+            $objArbeitgeberModel->setStrUnternehmenBeschreibung(htmlentities($arrArbeitgeberItem['Beschreibung']));
+            $objArbeitgeberModel->setIntJobCount(self::countJobs($arrArbeitgeberItem['UnternehmenID'])[0]);
+
+            $arrArbeitgeberList[] = $objArbeitgeberModel;
         }
         return $arrArbeitgeberList;
+    }
+
+    /**
+     * @param int $intUnternehmenID
+     */
+    public function setIntUnternehmenID(int $intUnternehmenID): void
+    {
+        $this->intUnternehmenID = $intUnternehmenID;
+    }
+
+    /**
+     * @param string $strUnternehmenName
+     */
+    public function setStrUnternehmenName(string $strUnternehmenName): void
+    {
+        $this->strUnternehmenName = $strUnternehmenName;
+    }
+
+    /**
+     * @param string $strUnternehmenOrt
+     */
+    public function setStrUnternehmenOrt(string $strUnternehmenOrt): void
+    {
+        $this->strUnternehmenOrt = $strUnternehmenOrt;
+    }
+
+    /**
+     * @param string $strUnternehmenBeschreibung
+     */
+    public function setStrUnternehmenBeschreibung(string $strUnternehmenBeschreibung): void
+    {
+        $this->strUnternehmenBeschreibung = $strUnternehmenBeschreibung;
+    }
+
+    /**
+     * @param int $intJobCount
+     */
+    public function setIntJobCount(int $intJobCount): void
+    {
+        $this->intJobCount = $intJobCount;
     }
 }

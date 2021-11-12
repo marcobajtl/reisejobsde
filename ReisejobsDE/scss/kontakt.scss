@@ -1,0 +1,59 @@
+@import "colors";
+
+.kontakt {
+    .inputfield, select, textarea {
+        width:         100%;
+        padding:       12px;
+        border:        1px solid #ccc;
+        border-radius: 4px;
+        box-sizing:    border-box;
+        margin-top:    6px;
+        margin-bottom: 5px;
+        resize:        vertical
+    }
+
+
+    .submitbtn input {
+        background-color: $c2a;
+        color:            white;
+        padding:          12px 20px;
+        border:           2px solid #fd5783;
+        border-radius:    4px;
+        cursor:           pointer;
+    }
+
+
+    .submitbtn input:hover {
+        background-color: #ff98b3;
+    }
+
+    textarea {
+        height: 200px
+    }
+
+    .form-container {
+        padding:       15px;
+        margin-bottom: 15px;
+        margin-top:    15px;
+    }
+
+    .invalidfield {
+        border: 3px solid #f8a2a2;
+    }
+
+    .validfield {
+        border: 3px solid #affcaf;
+    }
+
+    .honeypot {
+        display: none;
+    }
+
+    .successbox {
+        display: none;
+    }
+
+    .errorbox {
+        display: none;
+    }
+}

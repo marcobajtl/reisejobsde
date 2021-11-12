@@ -1,0 +1,96 @@
+.arbeitnehmer {
+  margin-top: 30px;
+}
+.arbeitnehmer .arbeitercontainer {
+  margin-bottom: 25px;
+  border: 1px solid black;
+  box-shadow: 0 1px 2px #343434;
+}
+.arbeitnehmer .arbeitercontainer .imagecontainer {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.arbeitnehmer .arbeitercontainer .imagecontainer img {
+  border-radius: 50%;
+  max-width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.arbeitnehmer .arbeitercontainer .informationcontainer {
+  position: relative;
+}
+.arbeitnehmer .arbeitercontainer .informationcontainer label {
+  font-weight: bold;
+}
+.arbeitnehmer .arbeitercontainer .informationcontainer p {
+  margin-left: 5px;
+}
+.arbeitnehmer .arbeitercontainer .kontaktbtn {
+  position: absolute;
+  top: 35px;
+  right: 35px;
+}
+.arbeitnehmer .arbeitercontainer .kontaktbtn button {
+  border: 2px solid #ff295f;
+  padding: 4px 20px;
+  border-radius: 5%;
+  background-color: #FF7B9C;
+}
+.arbeitnehmer .popupform .modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+.arbeitnehmer .popupform .modal-content {
+  background-color: #fefefe;
+  margin: 5px auto;
+  border: 1px solid #888;
+  width: 80%;
+}
+.arbeitnehmer .popupform form {
+  border: 3px solid #f1f1f1;
+}
+.arbeitnehmer .popupform input[type=text], .arbeitnehmer .popupform input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.arbeitnehmer .popupform button {
+  background-color: #a404aa;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+.arbeitnehmer .popupform button:hover {
+  opacity: 0.8;
+}
+.arbeitnehmer .popupform .createbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #FF7B9C;
+}
+.arbeitnehmer .popupform .container {
+  padding: 16px;
+  background-color: #f1f1f1;
+}
+.arbeitnehmer .popupform #Nachricht {
+  width: 100%;
+  height: 350px;
+}
+
+/*# sourceMappingURL=arbeitnehmer.css.map */

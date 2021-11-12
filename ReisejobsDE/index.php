@@ -1,9 +1,9 @@
 <?php
 
-use controller\ErrorController;
 use controller\Controller;
+use controller\ErrorController;
 
-require_once "autoloader.php";
+require_once "vendor/autoload.php";
 
 //z. B. C:\xampp\htdocs\schoetex-reisenOOP
 $strDir = __DIR__;
@@ -39,7 +39,7 @@ $strControllerClass = 'controller\\' . $strController;
 $strControllerClass = str_replace('/', '\\', $strControllerClass);
 
 session_start();
-
+//$_SESSION['csrf_token'] = hash("SHA256", uniqid('', true)); //TODO Abfragen ob schon gesetzt
 if(class_exists($strControllerClass))
 {
     /** @var Controller $objController */

@@ -1,0 +1,101 @@
+.jobs {
+  margin-bottom: 50px;
+}
+.jobs .redicon {
+  color: red;
+}
+.jobs .notfound {
+  margin-top: 75px;
+  margin-bottom: 75px;
+  text-align: center;
+}
+.jobs .jobcontainer {
+  font-family: "Circular Pro Book", "Helvetica Neue", Verdana, sans-serif;
+  margin-top: 25px;
+  color: rgba(70, 70, 70, 0.88);
+  border: #f8c748 1px solid;
+}
+.jobs .jobcontainer .jobimagesection img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 93%;
+  max-height: 93%;
+  margin-top: 8px;
+}
+.jobs .jobcontainer .jobtextsection {
+  position: relative;
+}
+.jobs .jobcontainer .jobtextsection .textbox {
+  margin: 10px 0 0 5px;
+}
+.jobs .jobcontainer .jobtextsection .jobtitel {
+  font-weight: bold;
+  font-size: 20px;
+}
+.jobs .jobcontainer .jobtextsection .jobunternehmen {
+  font-weight: bold;
+}
+.jobs .jobcontainer .jobtextsection .jobstandort {
+  font-weight: bold;
+  display: inline;
+}
+.jobs .jobcontainer .jobtextsection .jobstandort span {
+  padding: 0;
+}
+.jobs .jobcontainer .jobtextsection .jobdatum {
+  font-size: 12px;
+  margin-top: 10px;
+}
+.jobs .jobcontainer .jobctasection {
+  text-align: center;
+}
+.jobs .jobcontainer .jobctasection .bewerbenbtn {
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  background-color: #FF7B9C;
+}
+.jobs .jobcontainer .jobctasection .bewerbenbtn a {
+  text-decoration: none;
+  color: white;
+}
+.jobs .jobcontainer .jobctasection .bewerbenbtn:hover {
+  opacity: 0.8;
+}
+.jobs .jobcontainer .jobctasection .favbtn {
+  background: none;
+  border: none;
+}
+.jobs .jobcontainer .jobctasection .favbtn a {
+  text-decoration: none;
+  color: #989898;
+}
+@media screen and (max-width: 992px) {
+  .jobs .jobcontainer {
+    padding-bottom: 20px;
+  }
+  .jobs .jobcontainer .jobtextsection .textbox {
+    margin: 0 0 0 25px;
+  }
+  .jobs .jobcontainer .favbtn {
+    margin-top: 10px;
+  }
+  .jobs .jobcontainer .jobctasection .bewerbenbtn {
+    width: 90%;
+    margin: 0 10px 5px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .jobs .jobcontainer .jobdatum {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 4;
+  }
+  .jobs .jobctasection .bewerbenbtn {
+    margin-top: 25%;
+  }
+}
+
+/*# sourceMappingURL=jobs.css.map */

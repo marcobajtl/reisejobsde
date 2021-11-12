@@ -1,0 +1,143 @@
+@import "colors";
+
+
+.jobs {
+    margin-bottom: 50px;
+
+    .redicon {
+        color: red;
+    }
+
+    .notfound {
+        margin-top: 75px;
+        margin-bottom: 75px;
+        text-align: center;
+    }
+
+    .jobcontainer {
+        font-family: "Circular Pro Book", "Helvetica Neue", Verdana, sans-serif;
+        margin-top:  25px;
+        color:       rgba(70, 70, 70, 0.88);
+        border:      #f8c748 1px solid;
+
+        .jobimagesection {
+
+            img {
+                display:      block;
+                margin-left:  auto;
+                margin-right: auto;
+                max-width:    93%;
+                max-height:   93%;
+                margin-top: 8px;
+            }
+        }
+
+        .jobtextsection {
+            position: relative;
+
+            .textbox {
+                margin: 10px 0 0 5px;
+            }
+
+            .jobtitel {
+                font-weight: bold;
+                font-size:   20px;
+            }
+
+            .jobunternehmen {
+                font-weight: bold;
+            }
+
+            .jobstandort {
+                font-weight: bold;
+                display:     inline;
+                span {
+                    padding: 0;
+                }
+            }
+
+            .jobdatum {
+                font-size:  12px;
+                margin-top: 10px;
+            }
+        }
+
+        .jobctasection {
+            text-align: center;
+
+            .bewerbenbtn {
+                border:           none;
+                border-radius:    5px;
+                padding:          8px;
+                background-color: $c2a;
+
+                a {
+                    text-decoration: none;
+                    color:           white;
+                }
+            }
+
+            .bewerbenbtn:hover {
+                opacity: 0.8;
+            }
+
+
+            .favbtn {
+                background: none;
+                border:     none;
+
+                a {
+                    text-decoration: none;
+                    color:           #989898;
+                }
+            }
+        }
+
+    }
+
+    @media screen and (max-width: 992px) {
+        .jobcontainer {
+            padding-bottom: 20px;
+
+            .jobtextsection {
+                .textbox {
+                    margin: 0 0 0 25px;
+                }
+            }
+
+            .favbtn {
+                margin-top: 10px;
+            }
+
+            .jobctasection {
+                .bewerbenbtn {
+                    width:  90%;
+                    margin: 0 10px 5px;
+                }
+
+            }
+
+        }
+    }
+
+    @media screen and (min-width: 992px) {
+
+        .jobcontainer {
+
+            .jobdatum {
+                position: absolute;
+                left:     0;
+                bottom:   0;
+                z-index:  4;
+            }
+        }
+
+        .jobctasection {
+            .bewerbenbtn {
+                margin-top: 25%;
+            }
+
+        }
+    }
+}
+
